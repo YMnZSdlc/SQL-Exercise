@@ -37,7 +37,7 @@ publisher_id int,
 price double,
 year_published date);
 
-create table books_authoes(
+create table books_authors(
 id int primary key auto_increment,
 author_id int not null,
 book_id int not null);
@@ -47,6 +47,15 @@ id int primary key auto_increment,
 first_name varchar(20)not null,
 last_name varchar(20) not null,
 date_of_birth date);
+
+alter table books_authors add foreign key (book_id) references books (id);
+alter table books_authors add foreign key (author_id) references authors (id);
+alter table books add foreign key (publisher_id) references publishers (id);
+alter table orders add foreign key (customer_id) references customers (id);
+alter table orders add foreign key (book_id) references books (id);
+alter table publishers add foreign key (address_id) references addresses (id);
+alter table customers add foreign key (address_id) references addresses (id);
+alter table customers add foreign key (order_id) references orders (id);
 
 
 
