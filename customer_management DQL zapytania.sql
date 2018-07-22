@@ -230,6 +230,8 @@ create database `bookstore` default character set utf8 collate utf8_polish_ci;
 create user 'bookadmin'@'localhost' identified by 'book123';
 grant all on bookstore.* to 'bookadmin'@'localhost';
 flush privileges;
+
+
  
 
 
